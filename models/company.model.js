@@ -12,7 +12,7 @@ const companySchema = new mongoose.Schema( {
 
     image: {
         type: String, 
-        required: [true, 'Image is fucking required']
+        required: [false, 'Image is fucking required']
 
     },
 

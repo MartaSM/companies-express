@@ -21,17 +21,17 @@ module.exports.create = (req, res, render)=>{
 
 //AQUI NOS QUEDAMOS//
 
-// module.exports.doCreate = (req, res, render)=>{
-//     const company = new Company(req.body);
-//     company.save()
-//     .then(() => res.redirect('/companies'))
-//     .catch(error => {
-//         if (error instanceof mongoose.Error.ValidationError){
-//             console.log(`
-//         )
-//         }
-//     }
-// };
+module.exports.doCreate = (req, res, render)=>{
+    const company = new Company(req.body);
+    company.save()
+    .then(() => res.redirect('/companies'))
+    .catch(error => {
+        if (error instanceof mongoose.Error.ValidationError){
+            console.log(error)
+            res.redirect('/companies/create')
+        }
+    })
+};
 
  
 
