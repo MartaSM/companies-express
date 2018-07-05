@@ -13,25 +13,70 @@ module.exports.list = (req, res, next) => {
     .catch(error=>next(createError(404, 'Error 404. Sorry, companies not found')));
 };
 
-module.exports.create = (req, res, render)=>{
-    res.render('newCompany', {
+module.exports.detail = (req, res, next) => {
+    const id = req.params.id;
+
+    Company.findById(id)
+        .then(company => {
+            console.info('está funcionando');
+            res.render('companyDetail', {
+                company: company
+            })
+        })
+        .catch(error => {
+            next(error);
+            console.error(error);
+        })
+    }
+
+
+module.exports.create = (req, res, next) => {
+    res.render('companyCreate', {
         form: new Company()
     });
 };
 
-//AQUI NOS QUEDAMOS//
-
-module.exports.doCreate = (req, res, render)=>{
+module.exports.doCreate = (req, res, next) => {
     const company = new Company(req.body);
     company.save()
     .then(() => res.redirect('/companies'))
     .catch(error => {
         if (error instanceof mongoose.Error.ValidationError){
-            console.log(error)
-            res.redirect('/companies/create')
+            // console.error(error.errors.name.message)
+            console.error(error)
+            res.render('companyCreate', {
+            company: company,
+            error: error
+            })
         }
     })
 };
+
+module.exports.edit = (req, res, next) => {
+    console.log('entra en edit')
+    const id = req.params.id;
+
+    Company.findById(id)
+        .then(company => {
+            if(company) {
+                res.render('companyEdit', {
+                    company: company
+                })
+            } else {
+                next(error)
+            }
+        })
+        .catch(error => {
+            // next (createError(404, 'Error 404. Sorry, companies not found'));
+            next(error);
+            console.error(error);
+        })
+
+}
+
+module.exports.doEdit = (req, res, next) => {
+    
+}
 
  
 

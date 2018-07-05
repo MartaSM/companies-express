@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const companySchema = new mongoose.Schema( {
     name: {
         type: String, 
-        required: [true, 'Name is fucking required'],
+        required: 'Name is fucking required',
         unique: true
     },
     code: {

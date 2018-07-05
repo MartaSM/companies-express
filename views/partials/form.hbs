@@ -1,0 +1,18 @@
+<form method="POST" action="/companies/create">
+   <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" id="Name" placeholder="Enter name" name="name" value="{{company.name}}">    
+  <div class="form-group">
+    <label>Code</label>
+    <input class="form-control" id="Code"  placeholder="Enter code" name="code" value="{{company.code}}">  
+  </div>
+    <div class="form-group">
+    <label>Money</label>
+    <input class="form-control" id="Money"  placeholder="Enter money" name="money" value="{{company.money}}">
+  </div>
+    <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" id="Description"  placeholder="Enter phrase" name="catchPhrase" value="{{company.description}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

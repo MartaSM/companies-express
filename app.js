@@ -16,7 +16,9 @@ app.use(express.urlencoded({extended : false}))
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'))
 
+
 app.use('/companies', companiesRouter)
+
 //app.use('/', (req, res, next) => res.redirect('/companies'))
 
 app.listen(PORT,()=>{
