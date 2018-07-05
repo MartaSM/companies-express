@@ -1,5 +1,15 @@
 <div>
     <h1>{{company.name}}</h1>
     <p>{{company.description}}</p>
+    <div>
+        {{company.commnents}}
+    </div>
+    <input type="hidden" name="company" value = {{company._id}}>
+
+    <form method="POST" action="/comments/create">
+        <label>Comment</label>
+        <input class="form-control" id="Comment" name="comment" placeholder="Enter comment">
+    </form>
+   <button type="submit">Send comment</button>
 
 </div>

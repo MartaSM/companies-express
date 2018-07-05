@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const hbs = require('hbs');
 const companiesRouter = require('./routes/companies/companiesRoute');
+const commentsRouter = require('./routes/commentsRouter');
 
 require('./configs/db.config')
 
@@ -18,6 +19,7 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'))
 
 
 app.use('/companies', companiesRouter)
+app.use('/comments', commentsRouter)
 
 //app.use('/', (req, res, next) => res.redirect('/companies'))
 

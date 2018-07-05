@@ -18,7 +18,6 @@ module.exports.detail = (req, res, next) => {
 
     Company.findById(id)
         .then(company => {
-            console.info('está funcionando');
             res.render('companyDetail', {
                 company: company
             })
