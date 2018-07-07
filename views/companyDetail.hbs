@@ -4,9 +4,9 @@
     <div>
         {{company.commnents}}
     </div>
-    <input type="hidden" name="company" value = {{company._id}}>
 
-    <form method="POST" action="/comments/create">
+
+    <form method="POST" action="/comments/{{company.id}}/create">
         <label>Comment</label>
         <input class="form-control" id="Comment" name="comment" placeholder="Enter comment">
     </form>

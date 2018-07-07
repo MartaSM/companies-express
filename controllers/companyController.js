@@ -2,6 +2,7 @@ const createError = require("http-errors");
 const mongoose = require("mongoose");
 
 const Company = require("../models/company.model");
+const Comment = require('../models/comment.model')
 
 module.exports.list = (req, res, next) => {
   Company.find()
@@ -18,6 +19,7 @@ module.exports.detail = (req, res, next) => {
 
     Company.findById(id)
         .then(company => {
+            populate(Comment);
             res.render('companyDetail', {
                 company: company
             })

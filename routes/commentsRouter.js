@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const commentController = require('../controllers/commentController');
 
-router.post('/create', commentController.doCreate);
+router.post('/:id/create', commentController.doCreate);
 
 
 module.exports = router;
